@@ -211,37 +211,40 @@ if __name__ == '__main__':
     # Parse the arguments
     args = parser.parse_args()
 
-    # Check that model Keras version is same as local Keras version
-    f = h5py.File(args.model, mode='r')
-    model_version = f.attrs.get('keras_version')
-    keras_version = str(keras_version).encode('utf8')
+    try:
+        # Check that model Keras version is same as local Keras version
+        f = h5py.File(args.model, mode='r')
+        model_version = f.attrs.get('keras_version')
+        keras_version = str(keras_version).encode('utf8')
 
-    if model_version != keras_version:
-        print('You are using Keras version ', keras_version,
-              ', but the model was built using ', model_version)
+        if model_version != keras_version:
+            print('You are using Keras version ', keras_version,
+                  ', but the model was built using ', model_version)
 
-    model = load_model(args.model, custom_objects={'CustomLayer': LTCCell})
+        model = load_model(args.model, custom_objects={'CustomLayer': LTCCell})
 
-    if args.speed != '':
-        desired_speed = args.speed
-    else:
-        desired_speed = SPEED
-    controller.set_desired(desired_speed)
-
-    # Record the run if an image folder argument is provided
-    if args.image_folder != '':
-        print("Creating image folder at {}".format(args.image_folder))
-        if not os.path.exists(args.image_folder):
-            os.makedirs(args.image_folder)
+        if args.speed != '':
+            desired_speed = args.speed
         else:
-            shutil.rmtree(args.image_folder)
-            os.makedirs(args.image_folder)
-        print("RECORDING THIS RUN ...")
-    else:
-        print("NOT RECORDING THIS RUN ...")
+            desired_speed = SPEED
+        controller.set_desired(desired_speed)
 
-    # Wrap Flask application with engineio's middleware
-    app = socketio.Middleware(sio, app)
+        # Record the run if an image folder argument is provided
+        if args.image_folder != '':
+            print("Creating image folder at {}".format(args.image_folder))
+            if not os.path.exists(args.image_folder):
+                os.makedirs(args.image_folder)
+            else:
+                shutil.rmtree(args.image_folder)
+                os.makedirs(args.image_folder)
+            print("RECORDING THIS RUN ...")
+        else:
+            print("NOT RECORDING THIS RUN ...")
 
-    # Deploy as an eventlet WSGI server
-    eventlet.wsgi.server(eventlet.listen(('', 4567)), app)
+        # Wrap Flask application with engineio's middleware
+        app = socketio.Middleware(sio, app)
+
+        # Deploy as an eventlet WSGI server
+        eventlet.wsgi.server(eventlet.listen(('', 4567)), app)
+    except IOError:
+        print(f"\nThe entered '{args.model}' path does not exist! Please, try again!")
