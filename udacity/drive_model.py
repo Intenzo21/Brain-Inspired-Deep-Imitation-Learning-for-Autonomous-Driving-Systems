@@ -97,8 +97,10 @@ class SimplePIController:
         # This is to slow down the car when turning and speeding up when driving straight.
         # Only partially implemented and needs further testing.
         angle_adjustment = (abs(angle) * max((1.5 - (1 / self.set_point)), 1))
+        calc_throttle = self.Kp * self.error + self.Ki * self.integral
+        calc_adjusted = calc_throttle - angle_adjustment
 
-        return (self.Kp * self.error + self.Ki * self.integral) - angle_adjustment
+        return calc_adjusted if abs(calc_adjusted) > 0 else calc_throttle
 
 
 @sio.on('telemetry')
