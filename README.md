@@ -12,10 +12,9 @@ The instructions described are related to the Windows OS. They are pretty straig
  the Udacity dataset is preprocessed on the go while training the models via a batcher function thus
  no additional steps are required.
  
-Step 1: Enter a command prompt terminal window;
-Step 2: Navigate to the directory of the comma.ai dataset model training scripts by using the
-cd command;
-Alternatively, one could go to the model training program files directory viaWindows
-File Explorer, use the Ctrl +L keyboard shortcut to go to the address bar and enter
-cmd, as shown in Figure A.1, to launch a command prompt from the current file
-location;
+ Step 1: Enter a command prompt terminal window;
+ Step 2: Navigate to the directory of the comma.ai dataset model training scripts by using the cd command;
+ Alternatively, one could go to the model training program files directory viaWindows
+ File Explorer, use the Ctrl +L keyboard shortcut to go to the address bar and enter
+ cmd, as shown in Figure A.1, to launch a command prompt from the current file
+ location;
