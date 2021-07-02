@@ -24,3 +24,5 @@ into the terminal:
      python preprocess_data.py rec_type [batch_size]
      ```
    - The `rec_type` should be set to the value of either `sunny`, `cloudy` or `night` since we have 3 types of video files. On the other hand, the optional `batch_size` argument above can be replaced with the desired numerical size value of each batch. It is set to 64 by default.
+
+You can skip the above steps and directly download the 64-batched, preprocessed dataset [here](https://archive.org/details/imitation_learning_files).
