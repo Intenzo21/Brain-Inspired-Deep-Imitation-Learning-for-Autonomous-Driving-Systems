@@ -3,7 +3,7 @@ Autonomous driving vehicles have drawn a great deal of interests from both acade
  
 You can download the comma.ai driving dataset [here](https://archive.org/download/comma-dataset).
 
-The instructions described are related to the Windows OS. They are pretty straightforward given that the user has already downloaded the necessary project files and meets the dependencies and requirements mentioned in Chapter B. One can obtain the program scripts from our GitHub repository.
+The instructions described are related to the Windows OS. They are pretty straightforward given that the user has already downloaded the necessary project files and meets the dependencies and requirements mentioned in `maintenance_manual.pdf`. One can obtain the program scripts from our GitHub repository.
 
 ## Data Preprocessing
  The comma.ai dataset is split into 3 types of raw recordings prior
@@ -26,3 +26,5 @@ into the terminal:
    - The `rec_type` should be set to the value of either `sunny`, `cloudy` or `night` since we have 3 types of video files. On the other hand, the optional `batch_size` argument above can be replaced with the desired numerical size value of each batch. It is set to 64 by default.
 
 You can skip the above steps and directly download the 64-batched, preprocessed dataset [here](https://archive.org/details/imitation_learning_files).
+
+**For additional details about the project (how to reproduce, dependencies etc.) please refer to the `maintenance_manual.pdf` and `user_manual.pdf` files.**
