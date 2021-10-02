@@ -3,7 +3,7 @@ Autonomous driving vehicles have drawn a great deal of interests from both acade
  
 You can download the comma.ai driving dataset [here](https://archive.org/download/comma-dataset).
 
-The instructions described are related to the Windows OS. They are pretty straightforward given that the user has already downloaded the necessary project files and meets the dependencies and requirements mentioned in `maintenance_manual.pdf`. One can obtain the program scripts from our GitHub repository.
+The instructions described are related to the Windows OS. They are pretty straightforward given that the user has already downloaded the necessary project files and meets the dependencies and requirements mentioned in `maintenance_manual.pdf`.
 
 ## Data Preprocessing
  The comma.ai dataset is split into 3 types of raw recordings prior
