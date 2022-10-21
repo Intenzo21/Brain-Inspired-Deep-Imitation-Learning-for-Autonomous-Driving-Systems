@@ -27,4 +27,4 @@ into the terminal:
 
 You can skip the above steps and directly download the 64-batched, preprocessed dataset [here](https://archive.org/details/imitation_learning_files).
 
-**For additional details about the project (how to reproduce, dependencies etc.) please refer to the `maintenance_manual.pdf` and `user_manual.pdf` files.**
+**For additional details about the project (how to reproduce, dependencies etc.), please refer to the `maintenance_manual.pdf` and `user_manual.pdf` files.**
